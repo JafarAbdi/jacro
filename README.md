@@ -15,6 +15,17 @@ jacro.process_file("filename.ext", mappings={"arg1": "value1", "arg2": "value2"}
 
 You can use all functionality from minijinja (even as a replacement to xacro itself!), see [minijinja's examples](https://github.com/mitsuhiko/minijinja/tree/main/examples).
 
+### Custom functions
+
+Currently, jacro have the following extra registered functions:
+
+- `ros_pkg_path('pkg')`: Will be replaces with the shared directory of 'pkg'
+
+```
+urdf: {{ ros_pkg_path('my_robot_description') }} -> urdf: /path/to/my_robot_description/share/my_robot_description
+urdf: {{ ros_pkg_path('std_msgs') }} -> urdf: /opt/ros/humble/share/std_msgs
+```
+
 ## Command-Line Interface
 
 To save the output to a file, use the `-o` or `--output` option.
