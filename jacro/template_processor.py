@@ -1,4 +1,4 @@
-"""Jacro: A simple template using minijinja."""
+"""Jacro: A simple template using jinja2."""
 
 import argparse
 import ast
@@ -7,8 +7,8 @@ import os
 from pathlib import Path
 from tempfile import NamedTemporaryFile
 
+import jinja2
 from ament_index_python.packages import get_package_share_directory
-from minijinja import Environment, pass_state
 from rich.logging import RichHandler
 
 REMAP = ":="
@@ -100,8 +100,7 @@ def process_args(argv):
     return (options.input, options.output, mappings or {})
 
 
-@pass_state
-def ros_pkg_path(state, package_name: str) -> str:
+def ros_pkg_path(package_name: str) -> str:
     """Get the path to a ROS 2 package.
 
     Args:
@@ -126,13 +125,12 @@ def process_text(text: str, mappings: dict | None = None):
     """
     if mappings is None:
         mappings = {}
-    env = Environment(
-        templates={"jacro_template": text},
-        undefined_behavior="strict",
+    jinja2_template = jinja2.Template(
+        text,
+        undefined=jinja2.make_logging_undefined(LOGGER, jinja2.StrictUndefined),
     )
-    env.add_function("ros_pkg_path", ros_pkg_path)
-    env.reload_before_render = True
-    return env.render_template("jacro_template", **mappings)
+    jinja2_template.globals["ros_pkg_path"] = ros_pkg_path
+    return jinja2_template.render(mappings)
 
 
 def process_file(

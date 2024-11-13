@@ -1,6 +1,6 @@
 # Jacro
 
-Think "xacro" but with Jinja - we just swapped the "x" for "j". Not the most creative naming! 🤷 Just a small wrapper around [minijinja](https://github.com/mitsuhiko/minijinja) - if you're not using ROS 2, you probably want to use minijinja directly!
+Think "xacro" but with Jinja - we just swapped the "x" for "j". Not the most creative naming! 🤷 Just a small wrapper around [jinja2](https://jinja.palletsprojects.com/en/stable/) - if you're not using ROS 2, you probably want to use jinja2 directly!
 
 [![Build Status](https://github.com/JafarAbdi/jacro/actions/workflows/build_and_test.yaml/badge.svg)](https://github.com/JafarAbdi/jacro/actions/workflows/build_and_test.yaml)
 
@@ -13,7 +13,7 @@ jacro.process_text("Text {{ arg1 }}/{{ arg2 }}", mappings={"arg1": "value1", "ar
 jacro.process_file("filename.ext", mappings={"arg1": "value1", "arg2": "value2"})
 ```
 
-You can use all functionality from minijinja (even as a replacement to xacro itself!), see [minijinja's examples](https://github.com/mitsuhiko/minijinja/tree/main/examples).
+You can use all functionality from jinja2 (even as a replacement to xacro itself!)
 
 ### Custom functions
 
@@ -39,8 +39,6 @@ To print the output to the console
 ```bash
 jacro input_filename arg1:=value_1 arg2:=[1, 2, 3] arg3:=["asd", "jafar"] ...
 ```
-
-You can use minijinja's online playground for testing [minijinja-playground](https://mitsuhiko.github.io/minijinja-playground/)
 
 ## Linting
 
