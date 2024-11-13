@@ -2,7 +2,7 @@
 Changelog for package jacro
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.1.0 (2024-11-13)
+------------------
 * Initial commit
 * Contributors: Jafar Uruç
