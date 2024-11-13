@@ -10,6 +10,7 @@
   <url type="website">https://github.com/JafarAbdi/jacro</url>
   <url type="bugtracker">https://github.com/JafarAbdi/jacro/issues</url>
   <url type="repository">https://github.com/JafarAbdi/jacro/</url>
+  <buildtool_depend>ament_cmake</buildtool_depend>
   <exec_depend>python3-rich</exec_depend>
   <exec_depend>python3-minijinja</exec_depend>
   <exec_depend>ament_index_python</exec_depend>
