@@ -2,8 +2,8 @@
 Changelog for package jacro
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.2.0 (2024-11-13)
+------------------
 * Replace minijinja with jinja2
 * Contributors: JafarAbdi
 
